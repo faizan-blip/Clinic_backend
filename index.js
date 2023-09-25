@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-
+const cors = require('cors');
+app.use(cors());
 // Import the doctors data from your schema module
 const doctorsdata = require('./models/schema');
 
@@ -20,7 +21,6 @@ app.get('/doctors/nutritionists', (req, res) => {
   res.json(nutritionists);
 });
 
-// Start the Express server
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
